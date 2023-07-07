@@ -7,6 +7,10 @@ import os
 client = MongoClient(os.getenv("MONGO_URI"))
 db = client["fwdsupplierproductfile"]
 collection = db["BrandsgatewayCSV Example 2"]
+collection_example_lot = db["Example Lot"]
+adidas_collection = db["ADIDAS IN STOCK!"]
+DNC_WHOLESALE_DISTRIBUTOR_PRICE_LIST_collection = db['DNC WHOLESALE DISTRIBUTOR PRICE LIST']
+XMBO_offerCHARMEX_collection = db['XMBO-offerCHARMEX']
 
 
 app = Flask(__name__)
@@ -70,7 +74,7 @@ class BrandsgatewayCSV_Example_2(Resource):
 
 api.add_resource(BrandsgatewayCSV_Example_2, "/product/BrandsgatewayCSV_Example_2")
 
-collection_example_lot = db["Example Lot"]
+
 
 class Example_Lot(Resource):
     def post(self):
@@ -123,7 +127,7 @@ class Example_Lot(Resource):
 api.add_resource(Example_Lot, "/product/Example_Lot")
 
 
-adidas_collection = db["ADIDAS IN STOCK!"]
+
 
 class ADIDAS (Resource):
     def post(self):
@@ -196,7 +200,7 @@ class ADIDAS (Resource):
 
 api.add_resource(ADIDAS, "/product/ADIDAS_IN_STOCK")
 
-DNC_WHOLESALE_DISTRIBUTOR_PRICE_LIST_collection = db['DNC WHOLESALE DISTRIBUTOR PRICE LIST']
+
 
 class DNC_WHOLESALE(Resource):
     def post(self):
@@ -242,7 +246,7 @@ class DNC_WHOLESALE(Resource):
 
 api.add_resource(DNC_WHOLESALE, '/product/DNC_WHOLESALE_DISTRIBUTOR_PRICE_LIST_collection')
 
-XMBO_offerCHARMEX_collection = db['XMBO-offerCHARMEX']
+
 
 class XMBO_offerCHARMEX(Resource):
     def post(self):
